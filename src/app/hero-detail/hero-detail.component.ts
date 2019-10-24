@@ -10,6 +10,7 @@ import { HeroService }  from '../hero.service';
   templateUrl: './hero-detail.component.html',
   styleUrls: ['./hero-detail.component.css']
 })
+
 export class HeroDetailComponent implements OnInit {
   @Input() hero: Hero;
 
@@ -28,4 +29,7 @@ export class HeroDetailComponent implements OnInit {
     this.heroService.getHero(id).subscribe(hero => this.hero = hero);
   }
 
+  goBack(): void {
+    this.location.back();
+  }
 }
