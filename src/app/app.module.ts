@@ -6,6 +6,8 @@ import { HeroesComponent }     from './heroes/heroes.component';
 import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 import { ProductComponent }    from './product-list/product-list.component';
 import { MessagesComponent }   from './messages/messages.component';
+import { SqrtPipe }            from './app.sqrt';
+
 
 import { AppRoutingModule }   from './app-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
