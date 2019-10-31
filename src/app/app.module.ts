@@ -4,6 +4,7 @@ import { FormsModule }         from '@angular/forms';
 import { AppComponent }        from './app.component';
 import { HeroesComponent }     from './heroes/heroes.component';
 import { HeroDetailComponent } from './hero-detail/hero-detail.component';
+import { ProductComponent }    from './product-list/product-list.component';
 import { MessagesComponent }   from './messages/messages.component';
 
 import { AppRoutingModule }   from './app-routing.module';
@@ -14,6 +15,7 @@ import { HttpClientModule }   from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService }  from './in-memory-data.service';
 import { HeroSearchComponent } from './hero-search/hero-search.component';
+import { TestComponent } from './test/test.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { HeroSearchComponent } from './hero-search/hero-search.component';
     HeroDetailComponent,
     MessagesComponent,
     DashboardComponent,
-    HeroSearchComponent
+    HeroSearchComponent,
+    TestComponent,
+
   ],
   imports: [
     HttpClientModule,
