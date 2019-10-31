@@ -1,0 +1,17 @@
+<b> {{todaydate | date:'d/M/y' }} </b>
+<br/>
+<b> {{todaydate | date:'shortTime' }} </b>
+
+<div> Months : 
+  <select (change) = "changemonths($event)">
+    <option *ngFor = "let i of months"> {{i}} </option>
+  </select>
+</div>
+
+<div>
+  <span *ngIf = "isavailable; then condition1 else condition2"></span>
+  <ng-template #condition1>Condition is valid</ng-template>
+  <ng-template #condition2>Condition is invalid</ng-template>
+</div>  
+
+<button (click) = "myClickFunction($event)"> Click Me </button>
