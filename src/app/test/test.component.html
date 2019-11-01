@@ -30,3 +30,12 @@
 </div>  
 
 <button (click) = "myClickFunction($event)"> Click Me </button>
+
+<hr>
+
+{{jsondata}}
+
+<ul *ngFor = "let data of httpdata">
+ <li>Name : {{data.name}} Address: {{data.address.city}}</li>
+</ul>
+

@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { TimeService } from '../time.service';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable, of } from 'rxjs';
+import { catchError, map, tap } from 'rxjs/operators';
 
+                                                                                                                                                                     
 @Component({
   selector: 'app-test',
   templateUrl: './test.component.html',
@@ -9,14 +13,17 @@ import { TimeService } from '../time.service';
 export class TestComponent implements OnInit {
 
   title = 'test'
-
   todaydate
+  name
+  data: any
+  searchparam = 2
 
   months = ["January", "Feburary", "March" , "April", "May" , "June", "July", "August", "September", "October", "November", "December"];
 
   isavailable = true; 
 
-  constructor(private TimeService: TimeService) { }
+  constructor(private TimeService: TimeService,
+              private http: HttpClient ) { }
 
   myClickFunction(event) { 
     alert("Button is clicked");
@@ -30,6 +37,14 @@ export class TestComponent implements OnInit {
 
   ngOnInit() {
     this.todaydate = this.TimeService.showTodayDate();
+
+    this.http.get("http://jsonplaceholder.typicode.com/users").subscribe(response => console.log(response));
   }
+
+converttoarray(data) {
+  console.log(data);
+   this.name = data[0].name;
+}
+
 
 }
