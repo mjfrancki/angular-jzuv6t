@@ -18,6 +18,9 @@ import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService }  from './in-memory-data.service';
 import { HeroSearchComponent } from './hero-search/hero-search.component';
 import { TestComponent } from './test/test.component';
+import { ChangeTextDirective } from './change-text.directive';
+import { TimeService } from './time.service';
+
 
 @NgModule({
   declarations: [
@@ -28,6 +31,8 @@ import { TestComponent } from './test/test.component';
     DashboardComponent,
     HeroSearchComponent,
     TestComponent,
+    SqrtPipe,
+    ChangeTextDirective,
 
   ],
   imports: [
@@ -36,12 +41,13 @@ import { TestComponent } from './test/test.component';
     FormsModule,
     AppRoutingModule,
     HttpClientModule,
-    
     HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {dataEncapsulation: false})
   ],
   providers: [
     // no need to place any providers due to the `providedIn` flag...
-  InMemoryDataService],
+    InMemoryDataService,
+    TimeService],
+  
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }

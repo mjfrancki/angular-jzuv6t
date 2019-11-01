@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TimeService } from '../time.service';
 
 @Component({
   selector: 'app-test',
@@ -7,11 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TestComponent implements OnInit {
 
-  todaydate = new Date();
+  title = 'test'
+
+  todaydate
 
   months = ["January", "Feburary", "March" , "April", "May" , "June", "July", "August", "September", "October", "November", "December"];
 
   isavailable = true; 
+
+  constructor(private TimeService: TimeService) { }
 
   myClickFunction(event) { 
     alert("Button is clicked");
@@ -23,9 +28,8 @@ export class TestComponent implements OnInit {
     console.log(event);
   }
 
-  constructor() { }
-
   ngOnInit() {
+    this.todaydate = this.TimeService.showTodayDate();
   }
 
 }
