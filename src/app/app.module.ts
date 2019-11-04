@@ -21,6 +21,8 @@ import { TestComponent } from './test/test.component';
 import { ChangeTextDirective } from './change-text.directive';
 import { TimeService } from './time.service';
 
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -41,6 +43,7 @@ import { TimeService } from './time.service';
     FormsModule,
     AppRoutingModule,
     HttpClientModule,
+     ReactiveFormsModule,
     HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {dataEncapsulation: false})
   ],
   providers: [

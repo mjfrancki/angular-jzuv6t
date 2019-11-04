@@ -9,11 +9,34 @@
 <b> {{todaydate | date:'shortTime' }} </b>
 
 <hr>
+<h1>Uppercase Pipe</h1> 
+<b>{{title | uppercase}}</b>
+<br/> 
+
+<h1>Lowercase Pipe</h1> 
+<b>{{title | lowercase}}</b> 
+<h1>Currency Pipe</h1> 
+<b>{{6589.23 | currency:"USD"}}</b>
+<br/> 
+
+<b>{{6589.23 | currency:"USD":true}}</b> 
+
+<h1>Date pipe</h1> 
+<b>{{todaydate | date:'d/M/y'}}</b>
+<br/> 
+
+<h1>Decimal Pipe</h1> 
+<b>{{ 454.78787814 | number: '3.4-4' }}</b>
+
+<h1>Percent Pipe</h1> 
+<b>{{00.54565 | percent}}</b> 
+<h1>Slice Pipe</h1> 
+<b>{{months | slice:2:6}}</b> 
 
 <h1>Custom Pipe</h1>
 <b>Square root of 25 is: {{25 | sqrt}}</b><br/>
 <b>Square root of 729 is: {{729 | sqrt}}</b><br/>
-<b>Square root of 123 is: {{123 | sqrt}}</b>
+<b>Square root of 123 is: {{123 | sqrt | number: '2.4-4'}}</b>
 
 <hr>
 
@@ -32,6 +55,31 @@
 <button (click) = "myClickFunction($event)"> Click Me </button>
 
 <hr>
+<form #userlogin = "ngForm" (ngSubmit) = "onClickSubmit(userlogin.value)"> 
+   <input type = "text" name = "emailid" placeholder = "emailid" ngModel> 
+   <br/> 
+   <input type = "password" name = "passwd" placeholder = "passwd" ngModel> 
+   <br/> 
+   <input type = "submit" value = "submit"> 
+</form>
+<hr>
+
+
+<div> 
+   <form [formGroup] = "formdata" (ngSubmit) = "onClickSubmit(formdata.value)" > 
+      <input type = "text" class = "fortextbox" name = "emailid" placeholder = "emailid" 
+         formControlName = "emailid"> 
+      <br/> 
+      
+      <input type = "password" class = "fortextbox" name = "passwd" 
+         placeholder = "passwd" formControlName = "passwd"> 
+      <br/>
+      
+      <input type = "submit" class = "forsubmit" value = "Log In"> 
+   </form>
+</div> 
+<p> Email entered is : {{emailid}} </p>
+
 
 {{jsondata}}
 
