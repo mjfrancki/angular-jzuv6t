@@ -3,7 +3,7 @@ import { TimeService } from '../time.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
                                                                                                                                                                      
 @Component({
@@ -43,17 +43,25 @@ export class TestComponent implements OnInit {
     this.http.get("http://jsonplaceholder.typicode.com/users").subscribe(response => console.log(response));
 
     this.formdata = new FormGroup({ 
-         emailid: new FormControl("angular@gmail.com"),
-         passwd: new FormControl("abcd1234") 
+         emailid: new FormControl("", Validators.compose([
+            Validators.required,
+            Validators.pattern("[^ @]*@[^ @]*")
+         ])),
+         passwd: new FormControl("", this.passwordvalidation)
       });
-
-
-
   }
+
+  passwordvalidation(formcontrol) {
+      if (formcontrol.value.length < 5) {
+         return {"passwd" : true};
+      }
+   }
 
   onClickSubmit(data) {
       alert("Entered Email id : " + data.emailid); 
    }
+
+   onClickSubmitV2(data) {this.emailid = data.emailid;} 
 
 converttoarray(data) {
   console.log(data);

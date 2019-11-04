@@ -66,7 +66,7 @@
 
 
 <div> 
-   <form [formGroup] = "formdata" (ngSubmit) = "onClickSubmit(formdata.value)" > 
+   <form [formGroup] = "formdata" (ngSubmit) = "onClickSubmitV2(formdata.value)" > 
       <input type = "text" class = "fortextbox" name = "emailid" placeholder = "emailid" 
          formControlName = "emailid"> 
       <br/> 
@@ -75,7 +75,7 @@
          placeholder = "passwd" formControlName = "passwd"> 
       <br/>
       
-      <input type = "submit" class = "forsubmit" value = "Log In"> 
+      <input type = "submit" [disabled] = "!formdata.valid" class = "forsubmit" value = "Log In"> 
    </form>
 </div> 
 <p> Email entered is : {{emailid}} </p>
